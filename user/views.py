@@ -82,7 +82,6 @@ xgb_model.fit(X_train, y_train)
 def home(request):
     if request.method == 'POST':
         # Get user input from the form
-
         user_input = {
             'Floors': [int(request.POST.get('floors'))],
             'Ordinary Rooms': [int(request.POST.get('rooms'))],
@@ -95,13 +94,12 @@ def home(request):
             'Type of Foundation': [int(request.POST.get('foundation'))]
         }
         user_input_df = pd.DataFrame(user_input)
+
         # Make predictions using the trained models
-        rf_predicted_cost = 45547370.4
-        knn_predicted_cost = 62470560.0
-        xgb_predicted_cost = 48301052.0
-        print(rf_predicted_cost)
-        print(knn_predicted_cost)
-        print(xgb_predicted_cost)
+        rf_predicted_cost = rf_model.predict(user_input_df)[0]
+        knn_predicted_cost = knn_model.predict(user_input_df)[0]
+        xgb_predicted_cost = xgb_model.predict(user_input_df)[0]
+
         # Pass prediction results to template
         return render(request, 'base.html', {'rf_predicted_cost': rf_predicted_cost,
                                              'knn_predicted_cost': knn_predicted_cost,
@@ -109,15 +107,6 @@ def home(request):
                                              'mn': min(rf_predicted_cost, min(knn_predicted_cost, xgb_predicted_cost)),
                                              'mx': max(rf_predicted_cost, max(knn_predicted_cost, xgb_predicted_cost)),
                                              'avg': (rf_predicted_cost+knn_predicted_cost+xgb_predicted_cost)/3,
-                                             }),
+                                             })
 
-    rf_predicted_cost = 45547370.4
-    knn_predicted_cost = 62470560.0
-    xgb_predicted_cost = 48301052.0
-    return render(request, 'base.html', {'rf_predicted_cost': rf_predicted_cost,
-                                         'knn_predicted_cost': knn_predicted_cost,
-                                         'xgb_predicted_cost': xgb_predicted_cost,
-                                         'mn': min(rf_predicted_cost, min(knn_predicted_cost, xgb_predicted_cost)),
-                                         'mx': max(rf_predicted_cost, max(knn_predicted_cost, xgb_predicted_cost)),
-                                         'avg': (rf_predicted_cost+knn_predicted_cost+xgb_predicted_cost)/3,
-                                         })
+    return render(request, 'base.html')
