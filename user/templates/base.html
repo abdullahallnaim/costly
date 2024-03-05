@@ -33,13 +33,12 @@
 
     <h3 class="text-center">Cost Predictor</h3>
     <form
-      class="d-flex flex-wrap"
+      class="d-flex flex-wrap justify-content-center px-3"
       action=""
       method="post"
-      style="width: 50%; margin: auto"
     >
       {% csrf_token %}
-      <div class="mb-3 col-6 pr-3">
+      <div class="mb-3 col-12 col-md-6 pr-3">
         <label for="floors" class="form-label">No of Floors</label>
         <input
           type="number"
@@ -49,7 +48,7 @@
           required
         />
       </div>
-      <div class="mb-3 col-6">
+      <div class="mb-3 col-12 col-md-6">
         <label for="nrooms" class="form-label">No of Normal Rooms</label>
         <input
           type="number"
@@ -59,7 +58,7 @@
           required
         />
       </div>
-      <div class="mb-3 col-6">
+      <div class="mb-3 col-12 col-md-6">
         <label for="kitchen" class="form-label">No of Kitchens</label>
         <input
           type="number"
@@ -69,7 +68,7 @@
           required
         />
       </div>
-      <div class="mb-3 col-6">
+      <div class="mb-3 col-12 col-md-6">
         <label for="toilet" class="form-label">No of Toilets</label>
         <input
           type="number"
@@ -79,7 +78,7 @@
           required
         />
       </div>
-      <div class="mb-3 col-6">
+      <div class="mb-3 col-12 col-md-6">
         <label for="cols" class="form-label">No of Columns</label>
         <input
           type="number"
@@ -89,7 +88,7 @@
           required
         />
       </div>
-      <div class="mb-3 col-6">
+      <div class="mb-3 col-12 col-md-6">
         <label for="height" class="form-label">Total Building Height(m)</label>
         <input
           type="text"
@@ -99,7 +98,7 @@
           required
         />
       </div>
-      <div class="mb-3 col-6">
+      <div class="mb-3 col-12 col-md-6">
         <label for="floor_area" class="form-label"
           >Total Floor Area(sq.m)</label
         >
@@ -111,7 +110,7 @@
           required
         />
       </div>
-      <div class="mb-3 col-6">
+      <div class="mb-3 col-12 col-md-6">
         <label for="brick_area" class="form-label"
           >Total Brick Wall Area(sq.m)</label
         >
@@ -123,7 +122,7 @@
           required
         />
       </div>
-      <div class="col-6">
+      <div class="col-12 col-md-6">
         <label>Select Foundation Type</label>
         <select
           class="form-select mb-3"
