@@ -163,7 +163,6 @@ python-crontab
 python-dateutil
 pytweening
 pytz
-pywin32
 PyYAML
 pyzmq
 qrcode
