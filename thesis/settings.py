@@ -25,9 +25,12 @@ SECRET_KEY = 'django-insecure-=4d$_$e4g$j-8qcwxz#eg#c_7a965nooqa^t*#nqgoe@!z%f^u
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = [
+    'https://costly.onrender.com', 'https://*.127.0.0.1']
 
-
+CORS_ORIGIN_ALLOW_ALL = True
+CSRF_TRUSTED_ORIGINS = ['https://costly.onrender.com']
 # Application definition
 
 INSTALLED_APPS = [
